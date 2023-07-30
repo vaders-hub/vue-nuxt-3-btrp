@@ -6,7 +6,18 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   debug: true,
   srcDir: 'src/',
-  modules: [['@bootstrap-vue-next/nuxt', {}]],
+  modules: [
+    ['@bootstrap-vue-next/nuxt', {}],
+    [
+      '@pinia/nuxt',
+      {
+        autoImports: ['defineStore', ['defineStore', 'definePiniaStore'], 'acceptHMRUpdate'],
+      },
+    ],
+    async (options, nuxt) => {
+      nuxt.hooks.hook('vite:extendConfig', config => {});
+    },
+  ],
   typescript: {
     shim: false,
     typeCheck: true,
