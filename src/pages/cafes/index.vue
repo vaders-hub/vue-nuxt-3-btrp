@@ -13,8 +13,11 @@ const { isLoading, isError, data, error } = useQuery({
 const currentPage = computed(() => data?.value?.current_page);
 const links = computed(() => data?.value?.links);
 const cafeDatas = computed(() => data?.value?.data);
+const containerId = ref('');
 </script>
 <template>
   <div v-if="isLoading">Loading...</div>
-  <common-card v-for="(item, index) in cafeDatas" :key="item.id" :cafe="item" />
+  <div v-masonry="containerId" transition-duration="0.3s" item-selector=".item">
+    <common-card v-for="(item, index) in cafeDatas" :key="item.id" :cafe="item" v-masonry-tile class="item" />
+  </div>
 </template>
