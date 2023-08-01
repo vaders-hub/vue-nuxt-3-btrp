@@ -55,5 +55,6 @@
     ],
     "workbench.editor.highlightModifiedTabs": true,
     "editor.indentSize": 2,
-    "workbench.startupEditor": "none"
+    "workbench.startupEditor": "none",
+    "vue3snippets.enable-compile-vue-file-on-did-save-code": true
   }

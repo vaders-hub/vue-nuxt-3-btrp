@@ -4,15 +4,17 @@ import { fetchCafe } from '@/api/cafes';
 import { useCafeStore } from '@/store/cafes';
 
 const cafeStore = useCafeStore();
+const page = ref(1);
 const { isLoading, isError, data, error } = useQuery({
-  queryKey: ['cafes', { page: 1 }],
-  queryFn: () => fetchCafe({ page: 1 }),
+  queryKey: ['cafes', { page: page.value }],
+  queryFn: () => fetchCafe({ page: page.value }),
 });
 
 const currentPage = computed(() => data?.value?.current_page);
 const links = computed(() => data?.value?.links);
+const cafeDatas = computed(() => data?.value?.data);
 </script>
 <template>
-  <div>{{ currentPage }}</div>
-  <div>{{ links }}</div>
+  <div v-if="isLoading">Loading...</div>
+  <common-card v-for="(item, index) in cafeDatas" :key="item.id" :cafe="item" />
 </template>

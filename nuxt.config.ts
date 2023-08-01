@@ -4,6 +4,7 @@ import path from 'path';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   css: ['bootstrap/dist/css/bootstrap.css', 'bootstrap-vue/dist/bootstrap-vue.css'],
+  components: [{ path: '~/components/common/', prefix: 'common' }, '~/components'],
   ssr: true,
   devtools: { enabled: true },
   debug: true,
