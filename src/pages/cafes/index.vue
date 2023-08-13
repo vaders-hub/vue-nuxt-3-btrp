@@ -23,7 +23,7 @@ const containerId = ref('');
   <div v-if="isLoading">Loading...</div>
   <template v-if="data">
     <div v-masonry="containerId" transition-duration="0.3s" item-selector=".item">
-      <common-card v-for="(item, index) in cafeDatas" :key="item.id" :cafe="item" v-masonry-tile class="item" />
+      <common-card v-for="(item, index) in cafeDatas" :key="item.id" :cafe="item" class="item" />
     </div>
   </template>
 </template>

@@ -1,25 +1,39 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useColorMode } from 'bootstrap-vue-next';
+
 const colorMode = useColorMode();
+const checked = ref(true);
+
+watch(
+  checked,
+  value => {
+    colorMode.value = value === true ? 'dark' : 'light';
+  },
+  { deep: true, immediate: true },
+);
 </script>
 
 <template>
   <div class="mx-auto p-4">
-    <p class="p-4 pb-2">
-      <select v-model="colorMode" class="border w-24 h-8 dark:bg-gray-900 dark:text-white dark:border-gray-700">
-        <option value="light">Light</option>
-        <option value="dark">Dark</option>
-      </select>
-    </p>
+    <header>
+      <b-form-checkbox v-model="checked" name="check-button" switch> </b-form-checkbox>
+    </header>
     <slot />
   </div>
-  <!-- <div class="h-screen bg-themeBackground p-5 theme-light">
-    
-  </div> -->
 </template>
 
 <style lang="postcss">
 body {
   @apply min-h-screen bg-white dark:bg-gray-800 dark:text-gray-200;
+}
+</style>
+<style lang="scss" scoped>
+body {
+  header {
+    margin: 0 0 2rem 0;
+    .form-check {
+      float: right;
+    }
+  }
 }
 </style>

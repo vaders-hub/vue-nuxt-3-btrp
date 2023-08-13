@@ -13,8 +13,7 @@ const props = defineProps({
     :img-alt="cafe.company.name"
     img-top
     tag="article"
-    style="max-width: 20rem"
-    class="mb-2"
+    class="mb-2 single-card"
   >
     <b-card-text>
       {{ cafe.company.description }}
@@ -23,3 +22,9 @@ const props = defineProps({
     <b-button href="#" variant="primary">Go somewhere</b-button>
   </b-card>
 </template>
+<style lang="scss" scoped>
+.single-card {
+  width: calc(33.3% - 6px);
+  margin: 0 3px;
+}
+</style>
