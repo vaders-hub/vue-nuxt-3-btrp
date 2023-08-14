@@ -7,6 +7,7 @@ definePageMeta({
   layout: "default",
 });
 const cafeStore = useCafeStore();
+const inputWords = ref("");
 const search = ref("");
 const page = ref(1);
 const { isLoading, isError, data, error } = useQuery({
@@ -22,13 +23,17 @@ const containerId = ref("");
 const options = computed(() =>
   new Array(lastPage.value).fill(0).map((_, idx) => idx + 1)
 );
+const onSearch = () => {
+  page.value = 1;
+  search.value = inputWords.value;
+};
 </script>
 <template>
   <h1>Cafe</h1>
-  <b-form>
+  <b-form @submit="onSearch">
     <b-form-group class="cafe-form-group">
-      <b-form-input v-model="search" placeholder="Search"></b-form-input>
-      <b-button variant="outline-primary">Search</b-button>
+      <b-form-input v-model="inputWords" placeholder="Search"></b-form-input>
+      <b-button variant="outline-primary" type="submit">Search</b-button>
       <b-form-select v-model="page" :options="options"></b-form-select>
     </b-form-group>
   </b-form>
