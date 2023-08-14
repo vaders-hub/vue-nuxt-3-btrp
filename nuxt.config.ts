@@ -14,7 +14,7 @@ export default defineNuxtConfig({
   app: {
     rootId: 'vader',
   },
-  css: ['bootstrap/dist/css/bootstrap.css', 'bootstrap-vue/dist/bootstrap-vue.css'],
+  css: ['bootstrap/dist/css/bootstrap.css'],
   components: [{ path: '~/components/common/', prefix: 'common' }, '~/components'],
   ssr: true,
   devtools: { enabled: false },
