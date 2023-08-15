@@ -1,7 +1,11 @@
 <script lang="ts" setup>
+import { fetchReddit } from '@/api/reddit';
+
 definePageMeta({
   layout: 'default',
 });
+
+fetchReddit();
 </script>
 <template>
   start
