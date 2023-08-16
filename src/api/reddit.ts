@@ -1,4 +1,4 @@
-export const fetchReddit = async () => {
-  const result = await useRedditFetch('redit', { method: 'get', params: { limit: '5', t: 'day' } });
+export const fetchReddit = async params => {
+  const result = await useRedditFetch('top.json?', { method: 'get', params });
   return result;
 };
